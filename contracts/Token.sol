@@ -14,6 +14,8 @@ VSCode is indicating the compiler version is out of date.
 */
 pragma solidity ^0.7.0;
 
+import "hardhat/console.sol"; // allows Javascript style console logging
+
 contract Token {
 
     // Not literally copypasting the tutorial to try to introduce and fix bugs lol
@@ -56,7 +58,6 @@ contract Token {
         // Cancel the transaction and return an error message if the
         // Sender doesn't own enough tokens to transfer
         require(balances[msg.sender] >= amount, 'Insufficient Tokens');
-
         // Otherwise, send the stuff
         balances[msg.sender] -= amount;
         balances[to] += amount;
